@@ -5,7 +5,7 @@ class irssi {
 }
 
 class irssi::base {
-    packag{'irssi':
+    package{'irssi':
         ensure => present,
     }
 }
