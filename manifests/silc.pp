@@ -1,9 +1,8 @@
 # manifests/silc.pp
 
 class irssi::silc {
-    include irssi
+    require irssi
     package{'irssi-silc':
         ensure => present,
-        require => Package['irssi'],
     }
 }
