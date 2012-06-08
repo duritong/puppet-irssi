@@ -1,6 +1,6 @@
 class irssi::otr {
   require irssi
-  case $lsbdistcodename {
+  case $::lsbdistcodename {
     'lenny': {
       apt::preferences_snippet{
         'irssi-plugin-otr':
