@@ -1,6 +1,11 @@
 class irssi::xmpp {
   require irssi
-  package{'irssi-plugin-xmpp':
+  if $osfamily == 'RedHat' {
+    $pkg_name = 'irssi-xmpp'
+  } else {
+    $pkg_name = 'irssi-plugin-xmpp'
+  }
+  package{$pkg_name:
     ensure => present,
   }
 }

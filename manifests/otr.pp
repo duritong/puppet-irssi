@@ -1,15 +1,12 @@
+# otr plugin for irssi
 class irssi::otr {
   require irssi
-  case $::lsbdistcodename {
-    'lenny': {
-      apt::preferences_snippet{
-        'irssi-plugin-otr':
-          release => 'lenny-backports',
-          priority => 999;
-      }
-    }
-  } 
-  package{'irssi-plugin-otr':
+  if $osfamily == 'RedHat' {
+    $pkg_name = 'irc-otr'
+  } else {
+    $pkg_name = 'irssi-plugin-otr'
+  }
+  package{$pkg_name:
     ensure => present,
   }
 }
